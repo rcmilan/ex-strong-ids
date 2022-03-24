@@ -8,5 +8,7 @@ namespace SID.Domain.Entities
     {
         public string Title { get; set; }
         public int Classroom { get; set; }
+
+        public School School { get; set; }
     }
 }

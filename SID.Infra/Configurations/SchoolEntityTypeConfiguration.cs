@@ -11,6 +11,10 @@ namespace SID.Infra.Configurations
             builder
                 .Property(s => s.Id)
                 .HasConversion(id => id.Value, value => new SchoolId(value));
+
+            builder
+                .HasMany(s => s.Courses)
+                .WithOne(c => c.School);
         }
     }
 }
