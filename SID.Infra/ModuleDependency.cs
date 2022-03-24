@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MySqlConnector;
+using SID.Domain.Entities;
+using SID.Domain.Interfaces;
 using SID.Infra.Configurations;
+using SID.Infra.Repositories;
 
 namespace SID.Infra
 {
@@ -17,6 +20,8 @@ namespace SID.Infra
                 .AddDbContext<MySqlContext>(
                     options => options.UseMySql(connectionString, ServerVersion.AutoDetect(mySqlConnection))
                 );
+
+            services.AddScoped<IRepository<School, SchoolId>, Repository<School, SchoolId>>();
         }
     }
 }
