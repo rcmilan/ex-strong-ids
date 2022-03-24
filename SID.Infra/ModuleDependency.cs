@@ -1,7 +1,17 @@
-﻿namespace SID.Infra
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using SID.Infra.Configurations;
+
+namespace SID.Infra
 {
     public static class ModuleDependency
     {
 
+        public static void AddDatabaseModule(this IServiceCollection services)
+        {
+            services.AddDbContext<MySqlContext>(
+                options => options.UseMySql(ServerVersion.AutoDetect("Server=mysql;DataBase=typedids;Uid=mysqlusr;Pwd=password"))
+            );
+        }
     }
 }
