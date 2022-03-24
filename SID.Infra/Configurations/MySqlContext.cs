@@ -7,7 +7,7 @@ namespace SID.Infra.Configurations
     {
         public MySqlContext(DbContextOptions options) : base(options)
         {
-            Database.Migrate();
+
         }
 
         public DbSet<School> Schools { get; set; }

@@ -10,7 +10,7 @@ namespace SID.Infra
         public static void AddDatabaseModule(this IServiceCollection services)
         {
             services.AddDbContext<MySqlContext>(
-                options => options.UseMySql(ServerVersion.AutoDetect("Server=mysql;DataBase=typedids;Uid=mysqlusr;Pwd=password"))
+                options => options.UseMySql(ServerVersion.AutoDetect("Server=localhost;DataBase=typedids;Uid=mysqlusr;Pwd=password;"))
             );
         }
     }
