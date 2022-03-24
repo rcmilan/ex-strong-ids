@@ -7,7 +7,7 @@ namespace SID.Infra.Configurations
     {
         public MySqlContext(DbContextOptions options) : base(options)
         {
-
+            Database.EnsureCreated();
         }
 
         public DbSet<School> Schools { get; set; }
