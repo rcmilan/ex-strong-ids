@@ -1,6 +1,6 @@
 # ex-strong-ids
 ### Problema:
-É Comum utilizamos tipos primitivos para representar os IDs das entidades
+É Comum utilizarmos tipos primitivos para representar os IDs das entidades
 
 ```cs Example
 public class ClasseComIdInteiro
@@ -14,7 +14,7 @@ public class ClasseComIdGuid
 }
 ```
 
-Dessa forma as classes podem ter ids de tipos intercambiáveis
+Dessa forma as classes podem ter IDs de tipos intercambiáveis
 
 ```cs Example
 public void Funcao123(long idDaClasseA, long idDaClasseB)
@@ -22,10 +22,11 @@ public void Funcao123(long idDaClasseA, long idDaClasseB)
   ...
 }
 
+Funcao123(classeA.Id, classeB.Id);
 Funcao123(classeB.Id, classeA.Id); //parâmetros invertidos!!!
 ```
 
-### Proposta de Solução:
+### Solução:
 Utilizar [records](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/records) para definir os tipos dos ids
 
 ```cs Example
@@ -45,5 +46,6 @@ public void FuncaoABC(EntidadeXId idDaClasseX, EntidadeYId idDaClasseY)
   ...
 }
 
+Funcao123(classeX.Id, classeY.Id);
 Funcao123(classeY.Id, classeX.Id); //não compila!!!
 ```
