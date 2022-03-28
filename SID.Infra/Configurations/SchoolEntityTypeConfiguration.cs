@@ -8,9 +8,13 @@ namespace SID.Infra.Configurations
     {
         public void Configure(EntityTypeBuilder<School> builder)
         {
-            builder
-                .Property(s => s.Id)
-                .HasConversion(id => id.Value, value => new SchoolId(value));
+            builder.Property(x => x.Id)
+                .HasConversion(x => x.Value, value => new SchoolId(value));
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Name);
+            builder.Property(x => x.Address);
 
             builder
                 .HasMany(s => s.Courses)
