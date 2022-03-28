@@ -24,5 +24,13 @@ namespace SID.Api.Controllers
 
             return Ok(result);
         }
+
+        [HttpPost]
+        public IActionResult Post(School school)
+        {
+            var result = _repository.Add(school);
+
+            return Ok(result);
+        }
     }
 }
