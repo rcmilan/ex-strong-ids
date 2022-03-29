@@ -23,7 +23,7 @@ public void Funcao123(long idDaClasseA, long idDaClasseB)
 }
 
 Funcao123(classeA.Id, classeB.Id);
-Funcao123(classeB.Id, classeA.Id); //parâmetros invertidos!!!
+Funcao123(classeB.Id, classeA.Id); //aceita parâmetros invertidos!!!
 ```
 
 ### Solução:
