@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SID.Domain.Entities;
 
-namespace SID.Infra.Configurations
+namespace SID.Infra.Configurations.EntityType
 {
     internal class SchoolEntityTypeConfiguration : IEntityTypeConfiguration<School>
     {
