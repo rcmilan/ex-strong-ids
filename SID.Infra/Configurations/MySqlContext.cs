@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SID.Domain.Entities;
+using SID.Infra.Configurations.EntityType;
 
 namespace SID.Infra.Configurations
 {
