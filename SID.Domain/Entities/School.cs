@@ -8,7 +8,6 @@ namespace SID.Domain.Entities
     {
         public School()
         {
-
         }
 
         [System.Text.Json.Serialization.JsonConstructor()]

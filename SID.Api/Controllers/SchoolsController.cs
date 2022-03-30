@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SID.Domain.Entities;
 using SID.Domain.Interfaces;
 
@@ -9,8 +8,7 @@ namespace SID.Api.Controllers
     [ApiController]
     public class SchoolsController : ControllerBase
     {
-
-        IRepository<School, SchoolId> _repository;
+        private IRepository<School, SchoolId> _repository;
 
         public SchoolsController(IRepository<School, SchoolId> repository)
         {
