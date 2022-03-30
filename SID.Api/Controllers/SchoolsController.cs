@@ -24,11 +24,15 @@ namespace SID.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(School school)
+        public IActionResult Post(AddSchoolEvent addSchool)
         {
+            School school = new School(addSchool.Name, addSchool.Address);
+
             var result = _repository.Add(school);
 
             return Ok(result);
         }
+
+        public record struct AddSchoolEvent(string Name, string Address);
     }
 }

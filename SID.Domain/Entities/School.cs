@@ -6,14 +6,11 @@ namespace SID.Domain.Entities
 
     public class School : BaseEntity<SchoolId>
     {
-        public School()
+        public School(string name, string address)
         {
-        }
-
-        [System.Text.Json.Serialization.JsonConstructor()]
-        public School(Guid id)
-        {
-            this.Id = Id;
+            Id = new SchoolId(Guid.NewGuid());
+            Name = name;
+            Address = address;
         }
 
         public string Name { get; set; }
