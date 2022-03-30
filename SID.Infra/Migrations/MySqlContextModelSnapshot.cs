@@ -38,7 +38,7 @@ namespace SID.Infra.Migrations
 
                     b.HasIndex("SchoolId");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("SID.Domain.Entities.School", b =>
@@ -56,7 +56,7 @@ namespace SID.Infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Schools");
+                    b.ToTable("Schools", (string)null);
                 });
 
             modelBuilder.Entity("SID.Domain.Entities.Course", b =>
