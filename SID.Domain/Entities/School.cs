@@ -8,7 +8,6 @@ namespace SID.Domain.Entities
     {
         public School(string name, string address)
         {
-            Id = new SchoolId(Guid.NewGuid());
             Name = name;
             Address = address;
         }
