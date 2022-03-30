@@ -4,7 +4,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDatabaseModule();
+string connString = "server=localhost;port=3306;userid=mysqlusr;password=password;database=typedids;";
+
+builder.Services.AddDatabaseModule(connString);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
