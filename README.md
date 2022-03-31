@@ -1,4 +1,9 @@
 # ex-strong-ids
+
+## Referências:
+https://thomaslevesque.com/2020/10/30/using-csharp-9-records-as-strongly-typed-ids/
+https://andrewlock.net/using-strongly-typed-entity-ids-to-avoid-primitive-obsession-part-1/
+
 ### Problema:
 É Comum utilizarmos tipos primitivos para representar os IDs das entidades
 
