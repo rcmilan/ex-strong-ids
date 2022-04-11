@@ -1,5 +1,4 @@
-using SID.Domain.Converters;
-using SID.Domain.Entities;
+using SID.Domain.Converters.Factories;
 using SID.Infra;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,8 +12,7 @@ builder.Services.AddDatabaseModule(connString);
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        options.JsonSerializerOptions.Converters.Add(new StronglyTypedIdJsonConverter<SchoolId, Guid>());
-        options.JsonSerializerOptions.Converters.Add(new StronglyTypedIdJsonConverter<CourseId, int>());
+        options.JsonSerializerOptions.Converters.Add(new StronglyTypedIdJsonConverterFactory());
     });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
