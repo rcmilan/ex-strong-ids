@@ -6,9 +6,11 @@ using System.Linq.Expressions;
 
 namespace SID.Infra.Converters
 {
-    internal class StronglyTypedIdConverter
+    internal class StronglyTypedIdEntityConverter
     {
-        private static void AddStronglyTypedIdConversions(ModelBuilder modelBuilder)
+        private static readonly ConcurrentDictionary<Type, ValueConverter> StronglyTypedIdConverters = new();
+
+        public static void AddStronglyTypedIdConversions(ModelBuilder modelBuilder)
         {
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
@@ -25,11 +27,7 @@ namespace SID.Infra.Converters
             }
         }
 
-        private static readonly ConcurrentDictionary<Type, ValueConverter> StronglyTypedIdConverters = new();
-
-        private static ValueConverter CreateStronglyTypedIdConverter(
-            Type stronglyTypedIdType,
-            Type valueType)
+        private static ValueConverter CreateStronglyTypedIdConverter(Type stronglyTypedIdType, Type valueType)
         {
             // id => id.Value
             var toProviderFuncType = typeof(Func<,>).MakeGenericType(stronglyTypedIdType, valueType);
@@ -45,10 +43,7 @@ namespace SID.Infra.Converters
             var valueParam = Expression.Parameter(valueType, "value");
             var ctor = stronglyTypedIdType.GetConstructor(new[] { valueType });
 
-            var fromProviderExpression = Expression.Lambda(
-                fromProviderFuncType,
-                Expression.New(ctor, valueParam),
-                valueParam);
+            var fromProviderExpression = Expression.Lambda(fromProviderFuncType, Expression.New(ctor, valueParam), valueParam);
 
             var converterType = typeof(ValueConverter<,>).MakeGenericType(stronglyTypedIdType, valueType);
 

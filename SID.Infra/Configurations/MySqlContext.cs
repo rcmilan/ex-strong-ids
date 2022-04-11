@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SID.Domain.Entities;
 using SID.Infra.Configurations.EntityType;
+using SID.Infra.Converters;
 
 namespace SID.Infra.Configurations
 {
@@ -15,6 +16,8 @@ namespace SID.Infra.Configurations
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.ApplyConfiguration(new SchoolEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new CourseEntityTypeConfiguration());
 
@@ -33,7 +36,9 @@ namespace SID.Infra.Configurations
             //    new School { Name = "school 2", Courses = courses2 }
             //    );
 
-            base.OnModelCreating(modelBuilder);
+
+            StronglyTypedIdEntityConverter.AddStronglyTypedIdConversions(modelBuilder);
+
         }
     }
 }
