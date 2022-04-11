@@ -1,3 +1,4 @@
+using SID.Api.Swagger;
 using SID.Domain.Converters.Factories;
 using SID.Infra;
 
@@ -17,7 +18,7 @@ builder.Services.AddControllers()
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options => options.SchemaFilter<StronglyTypedIdSchemaFilter>());
 
 var app = builder.Build();
 
