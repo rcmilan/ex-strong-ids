@@ -1,3 +1,4 @@
+using SID.Domain.Converters.Factories;
 using SID.Infra;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +9,12 @@ string connString = "server=localhost;port=3306;userid=mysqlusr;password=passwor
 
 builder.Services.AddDatabaseModule(connString);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new StronglyTypedIdJsonConverterFactory());
+    });
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

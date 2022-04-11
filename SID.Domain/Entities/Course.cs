@@ -2,7 +2,7 @@
 
 namespace SID.Domain.Entities
 {
-    public record CourseId(int Value);
+    public record CourseId(int Value) : StronglyTypedId<int>(Value);
 
     public class Course : BaseEntity<CourseId>
     {
