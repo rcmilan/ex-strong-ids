@@ -10,7 +10,6 @@ namespace SID.Api.Swagger
         {
             if (schema is not null && context?.Type.IsAssignableTo(typeof(StronglyTypedId<>)) == true)
             {
-                schema.Type = "string";
                 schema.AdditionalPropertiesAllowed = false;
                 schema.Properties.Clear();
             }
