@@ -1,5 +1,5 @@
 ﻿using SID.Domain.Base;
-using SID.Infra.Helpers;
+using SID.Domain.Helpers;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 

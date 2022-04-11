@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SID.Infra.Helpers;
+using SID.Domain.Helpers;
 using System.Collections.Concurrent;
 using System.Linq.Expressions;
 

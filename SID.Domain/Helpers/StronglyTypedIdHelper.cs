@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 
-namespace SID.Infra.Helpers
+namespace SID.Domain.Helpers
 {
     public static class StronglyTypedIdHelper
     {

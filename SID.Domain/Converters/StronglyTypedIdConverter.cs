@@ -1,10 +1,10 @@
 ﻿using SID.Domain.Base;
-using SID.Infra.Helpers;
+using SID.Domain.Helpers;
 using System.Collections.Concurrent;
 using System.ComponentModel;
 using System.Globalization;
 
-namespace SID.Infra.Converters
+namespace SID.Domain.Converters
 {
     public class StronglyTypedIdConverter : TypeConverter
     {

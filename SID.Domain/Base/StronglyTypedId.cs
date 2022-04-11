@@ -1,4 +1,4 @@
-﻿using SID.Infra.Converters;
+﻿using SID.Domain.Converters;
 using System.ComponentModel;
 
 namespace SID.Domain.Base
